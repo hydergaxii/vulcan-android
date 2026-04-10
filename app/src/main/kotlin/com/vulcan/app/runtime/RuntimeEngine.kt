@@ -35,7 +35,7 @@ class RuntimeEngine(private val context: Context) {
             else    -> startNative(app)
         }
 
-        VulcanLogger.i("${app.id} launched with PID ${process.pid}", app.id)
+        VulcanLogger.i("${app.id} launched with PID ${process.pid()}", app.id)
         process
     }
 
