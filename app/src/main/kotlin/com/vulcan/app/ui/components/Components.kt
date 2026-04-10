@@ -3,6 +3,7 @@ package com.vulcan.app.ui.components
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -69,6 +70,7 @@ fun StatusBadge(status: AppStatus, modifier: Modifier = Modifier) {
 
 // ─── APP CARD ─────────────────────────────────────────────────────────────────
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AppCard(
     app: InstalledApp,

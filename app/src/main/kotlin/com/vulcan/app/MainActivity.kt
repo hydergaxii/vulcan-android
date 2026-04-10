@@ -112,7 +112,7 @@ fun VulcanBottomNav(navController: androidx.navigation.NavController) {
 
     NavigationBar(
         containerColor = MaterialTheme.colorScheme.surface,
-        tonalElevation = androidx.compose.ui.unit.dp * 0
+        tonalElevation = 0.dp
     ) {
         Screen.bottomNavItems.forEach { screen ->
             val selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true
