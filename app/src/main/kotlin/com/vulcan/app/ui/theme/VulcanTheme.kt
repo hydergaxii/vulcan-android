@@ -182,18 +182,18 @@ fun VulcanTheme(
 // ─── DESIGN TOKENS ────────────────────────────────────────────────────────────
 
 object VulcanDimens {
-    val paddingXS   = androidx.compose.ui.unit.dp *  4
-    val paddingS    = androidx.compose.ui.unit.dp *  8
-    val paddingM    = androidx.compose.ui.unit.dp * 16
-    val paddingL    = androidx.compose.ui.unit.dp * 24
-    val paddingXL   = androidx.compose.ui.unit.dp * 32
+    val paddingXS     = 4.dp
+    val paddingS      = 8.dp
+    val paddingM      = 16.dp
+    val paddingL      = 24.dp
+    val paddingXL     = 32.dp
 
-    val radiusS     = androidx.compose.ui.unit.dp *  8
-    val radiusM     = androidx.compose.ui.unit.dp * 12
-    val radiusL     = androidx.compose.ui.unit.dp * 16
-    val radiusXL    = androidx.compose.ui.unit.dp * 24
+    val radiusS       = 8.dp
+    val radiusM       = 12.dp
+    val radiusL       = 16.dp
+    val radiusXL      = 24.dp
 
-    val cardElevation = androidx.compose.ui.unit.dp * 2
-    val appIconSize   = androidx.compose.ui.unit.dp * 56
-    val miniIconSize  = androidx.compose.ui.unit.dp * 40
+    val cardElevation = 2.dp
+    val appIconSize   = 56.dp
+    val miniIconSize  = 40.dp
 }
