@@ -188,7 +188,7 @@ class RuntimeEngine(private val context: Context) {
         val process = pb.start()
         pipeToLog(process, app.id, logsDir)
 
-        return AppProcess(appId = app.id, pid = process.pid(), process = process)
+        return AppProcess(appId = app.id, pid = process.pid().toInt(), process = process)
     }
 
     private fun buildProotEnv(
