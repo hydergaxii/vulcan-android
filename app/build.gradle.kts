@@ -161,6 +161,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.gson)
 
+    // ── Compression ───────────────────────────────────────────────────────────
+    implementation("org.tukaani:xz:1.9")
+    implementation("org.apache.commons:commons-compress:1.26.1")
+
     // ── Testing ───────────────────────────────────────────────────────────
     testImplementation(libs.junit5)
     testImplementation(libs.mockk)

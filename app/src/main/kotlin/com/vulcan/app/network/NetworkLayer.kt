@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.nsd.NsdManager
 import android.net.nsd.NsdServiceInfo
 import com.vulcan.app.util.VulcanLogger
+import com.vulcan.app.runtime.RuntimeCatalog
 import java.util.concurrent.ConcurrentHashMap
 
 // ─────────────────────────────────────────────────────────────────────────────

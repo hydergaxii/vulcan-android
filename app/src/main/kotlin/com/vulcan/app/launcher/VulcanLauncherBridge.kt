@@ -12,6 +12,7 @@ import com.vulcan.app.data.database.VulcanDatabase
 import com.vulcan.app.data.database.entities.SlotEntity
 import com.vulcan.app.icon.IconResolver
 import com.vulcan.app.service.PrivilegedClient
+import com.vulcan.app.service.VulcanCoreService
 import com.vulcan.app.util.VulcanLogger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
