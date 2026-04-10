@@ -71,7 +71,7 @@ class RuntimeEngine(private val context: Context) {
 
         return AppProcess(
             appId   = app.id,
-            pid     = process.pid(),
+            pid     = process.pid().toLong(),
             process = process
         )
     }

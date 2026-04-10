@@ -13,6 +13,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
@@ -529,7 +530,7 @@ fun SettingsScreen(viewModel: MainViewModel) {
 
         item { SettingsGroupHeader("About") }
         item { SettingsRow(icon = Icons.Default.Info, title = "Vulcan Version", value = "2.0.0") }
-        item { SettingsRow(icon = Icons.Default.OpenSource, title = "Open Source Licenses") }
+        item { SettingsRow(icon = Icons.Default.Code, title = "Open Source Licenses") }
 
         item { Spacer(Modifier.height(80.dp)) }
     }
