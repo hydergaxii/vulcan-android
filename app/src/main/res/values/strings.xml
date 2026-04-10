@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vulcan</string>
+    <string name="app_tagline">Your Android. Your Rules. Your Stack.</string>
+
+    <!-- Launcher slot labels (shown under home screen icons) -->
+    <string name="slot_label_placeholder">App</string>
+
+    <!-- Notifications -->
+    <string name="notif_channel_core_name">Vulcan — Running Apps</string>
+    <string name="notif_channel_core_desc">Shows which Vulcan apps are currently running</string>
+    <string name="notif_running_title">Vulcan — %1$d app(s) running</string>
+    <string name="notif_idle_title">Vulcan — Forge is ready</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_title">Dashboard</string>
+    <string name="dashboard_empty_title">Forge is ready</string>
+    <string name="dashboard_empty_subtitle">Install your first app from the Vulcan Store</string>
+    <string name="browse_store">Browse Store</string>
+
+    <!-- Store -->
+    <string name="store_title">Store</string>
+    <string name="store_search_hint">Search 60+ apps…</string>
+    <string name="store_install">Install</string>
+    <string name="store_installed">Installed</string>
+    <string name="store_update">Update</string>
+    <string name="store_loading">Loading store…</string>
+    <string name="store_retry">Retry</string>
+
+    <!-- App actions -->
+    <string name="action_start">Start</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_restart">Restart</string>
+    <string name="action_open">Open</string>
+    <string name="action_logs">Logs</string>
+    <string name="action_backup">Backup</string>
+    <string name="action_uninstall">Uninstall</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Status labels -->
+    <string name="status_running">Running</string>
+    <string name="status_starting">Starting</string>
+    <string name="status_stopping">Stopping</string>
+    <string name="status_stopped">Stopped</string>
+    <string name="status_error">Error</string>
+    <string name="status_installing">Installing</string>
+
+    <!-- Network -->
+    <string name="network_title">Network</string>
+    <string name="network_lan_title">LAN Access</string>
+    <string name="network_lan_subtitle">Devices on your WiFi can reach Vulcan</string>
+    <string name="network_cf_title">Cloudflare Tunnel</string>
+    <string name="network_cf_start">Start Tunnel</string>
+    <string name="network_cf_stop">Stop Tunnel</string>
+    <string name="network_wg_title">WireGuard VPN</string>
+    <string name="network_ts_title">Tailscale</string>
+
+    <!-- Metrics -->
+    <string name="metrics_title">Metrics</string>
+    <string name="metrics_ram">RAM</string>
+    <string name="metrics_cpu">CPU</string>
+    <string name="metrics_storage">Storage</string>
+    <string name="metrics_battery">Battery</string>
+    <string name="metrics_uptime">Uptime</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_launch_mode">Launch Mode</string>
+    <string name="settings_permission_tier">Permission Tier</string>
+    <string name="settings_storage_root">Storage Root</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_dev_mode">Developer Mode</string>
+    <string name="settings_version">Vulcan Version</string>
+    <string name="settings_licenses">Open Source Licenses</string>
+
+    <!-- Setup wizard -->
+    <string name="wizard_welcome_title">Welcome to Vulcan</string>
+    <string name="wizard_welcome_subtitle">Your Android. Your Rules. Your Stack.</string>
+    <string name="wizard_complete">The Forge is Ready</string>
+    <string name="wizard_enter">Enter the Forge</string>
+
+    <!-- Errors -->
+    <string name="error_generic">Something went wrong: %1$s</string>
+    <string name="error_no_storage">Storage permission required</string>
+    <string name="error_install_failed">Installation failed: %1$s</string>
+    <string name="error_start_failed">Failed to start %1$s</string>
+    <string name="error_registry_invalid">Registry signature invalid — refusing update</string>
+
+    <!-- Permission descriptions (shown to user) -->
+    <string name="perm_storage_rationale">Vulcan stores all app data in /sdcard/Vulcan. This keeps your data visible and portable.</string>
+    <string name="perm_notification_rationale">Vulcan shows a notification while apps are running to keep them alive in the background.</string>
+    <string name="perm_battery_rationale">Vulcan needs battery optimization exempt to keep your apps running 24/7.</string>
+
+    <!-- Biometric auth -->
+    <string name="auth_title">Vulcan — Authenticate</string>
+    <string name="auth_subtitle_open">Authenticate to access Vulcan</string>
+    <string name="auth_subtitle_secrets">Authenticate to view secrets</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core Vulcan Palette — from Part I of the Masterplan -->
+    <color name="vulcan_orange">#FF6B35</color>       <!-- Forge fire — primary brand -->
+    <color name="vulcan_deep_forge">#1A1A2E</color>   <!-- Near-black background -->
+    <color name="vulcan_dark_steel">#16213E</color>   <!-- Surface -->
+    <color name="vulcan_hot_metal">#E94560</color>    <!-- Error / critical -->
+    <color name="vulcan_cooling">#0F9B58</color>      <!-- Success / running -->
+    <color name="vulcan_ash">#A0A0B0</color>          <!-- Neutral text -->
+
+    <!-- Derived -->
+    <color name="vulcan_orange_light">#FF8C5C</color>
+    <color name="vulcan_steel_bright">#2A2A4E</color>
+    <color name="vulcan_steel_mid">#1E1E3A</color>
+
+    <!-- Status -->
+    <color name="status_running">#0F9B58</color>
+    <color name="status_stopped">#555568</color>
+    <color name="status_starting">#FFB347</color>
+    <color name="status_error">#E94560</color>
+
+    <!-- Semantic -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+</resources>

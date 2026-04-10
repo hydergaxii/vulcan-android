@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  VULCAN NETWORK SECURITY CONFIG
+  Allows cleartext traffic ONLY to localhost and vulcan.internal (our apps).
+  Everything else must use HTTPS. This is the production-safe config.
+-->
+<network-security-config>
+
+    <!-- Allow cleartext HTTP to our local apps — they serve on localhost -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">localhost</domain>
+        <domain includeSubdomains="false">127.0.0.1</domain>
+        <domain includeSubdomains="true">vulcan.internal</domain>
+        <domain includeSubdomains="false">vulcan.local</domain>
+        <!-- LAN IP ranges — needed for LAN access from WebView -->
+        <domain includeSubdomains="false">10.0.0.1</domain>
+        <domain includeSubdomains="false">192.168.1.1</domain>
+        <domain includeSubdomains="false">192.168.0.1</domain>
+    </domain-config>
+
+    <!-- Everything else: HTTPS only -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+</network-security-config>

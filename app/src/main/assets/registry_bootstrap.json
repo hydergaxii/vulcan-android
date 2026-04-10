@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 2,
+  "registryVersion": "1.0.0",
+  "updatedAt": "2026-04-09T00:00:00Z",
+  "signature": "",
+  "categories": [
+    { "id": "ai",           "label": "AI & LLM",       "icon": "sparkles" },
+    { "id": "automation",   "label": "Automation",      "icon": "zap" },
+    { "id": "productivity", "label": "Productivity",    "icon": "briefcase" },
+    { "id": "dev-tools",    "label": "Dev Tools",       "icon": "code" },
+    { "id": "media",        "label": "Media",           "icon": "film" },
+    { "id": "monitoring",   "label": "Monitoring",      "icon": "activity" },
+    { "id": "storage",      "label": "Storage & Files", "icon": "database" },
+    { "id": "security",     "label": "Security",        "icon": "shield" },
+    { "id": "communication","label": "Communication",   "icon": "message-circle" },
+    { "id": "finance",      "label": "Finance",         "icon": "dollar-sign" }
+  ],
+  "apps": [
+    {
+      "id": "librechat",
+      "label": "LibreChat",
+      "version": "0.7.4",
+      "description": "Multi-provider AI chat UI. Connect to OpenAI, Anthropic, Ollama, and more. The best free ChatGPT alternative.",
+      "category": "ai",
+      "website": "https://librechat.ai",
+      "source": { "type": "git", "url": "https://github.com/danny-avila/LibreChat.git", "repo": "danny-avila/LibreChat", "branch": "main", "sha256": "" },
+      "runtime": { "type": "native", "engine": "node", "version": "20.14.0" },
+      "install": {
+        "setup": ["npm install", "npm run build"],
+        "startCommand": "npm start",
+        "workingDir": "source"
+      },
+      "ports": [{ "port": 3080, "label": "Web UI", "protocol": "http" }],
+      "env": [
+        { "key": "HOST", "label": "Host", "defaultValue": "0.0.0.0" },
+        { "key": "PORT", "label": "Port", "defaultValue": "3080" },
+        { "key": "MONGO_URI", "label": "MongoDB URI", "defaultValue": "mongodb://localhost:27017/LibreChat" }
+      ],
+      "secrets": [
+        { "key": "OPENAI_API_KEY", "label": "OpenAI API Key", "example": "sk-..." },
+        { "key": "ANTHROPIC_API_KEY", "label": "Anthropic API Key", "example": "sk-ant-..." }
+      ],
+      "healthCheck": { "path": "/", "expectedStatus": 200, "timeoutMs": 10000 },
+      "minRamMB": 512,
+      "minStorageMB": 1000,
+      "tags": ["ai", "chat", "llm", "openai", "claude"]
+    },
+    {
+      "id": "n8n",
+      "label": "n8n",
+      "version": "1.0.0",
+      "description": "Visual workflow automation. Connect 400+ services without code. Your personal Zapier, on your phone.",
+      "category": "automation",
+      "website": "https://n8n.io",
+      "source": { "type": "archive", "url": "https://registry.npmjs.org/n8n/-/n8n-1.0.0.tgz", "repo": "n8n-io/n8n", "sha256": "" },
+      "runtime": { "type": "native", "engine": "node", "version": "20.14.0" },
+      "install": {
+        "setup": ["npm install"],
+        "startCommand": "npx n8n",
+        "workingDir": "source"
+      },
+      "ports": [{ "port": 5678, "label": "Web UI", "protocol": "http" }],
+      "env": [
+        { "key": "N8N_HOST", "label": "Host", "defaultValue": "0.0.0.0" },
+        { "key": "N8N_PORT", "label": "Port", "defaultValue": "5678" },
+        { "key": "N8N_PROTOCOL", "label": "Protocol", "defaultValue": "http" }
+      ],
+      "secrets": [],
+      "healthCheck": { "path": "/", "expectedStatus": 200 },
+      "minRamMB": 256,
+      "minStorageMB": 200,
+      "tags": ["automation", "workflow", "no-code"]
+    },
+    {
+      "id": "gitea",
+      "label": "Gitea",
+      "version": "1.22.0",
+      "description": "Lightweight self-hosted Git service. Your own GitHub, running on your phone. Repos, issues, pull requests — all yours.",
+      "category": "dev-tools",
+      "website": "https://gitea.io",
+      "source": { "type": "binary", "url": "https://dl.gitea.com/gitea/1.22.0/gitea-1.22.0-linux-arm64", "repo": "go-gitea/gitea", "sha256": "" },
+      "runtime": { "type": "native", "engine": "binary", "version": "1.22.0" },
+      "install": {
+        "setup": ["chmod +x gitea-1.22.0-linux-arm64"],
+        "startCommand": "./gitea-1.22.0-linux-arm64 web --port 3000",
+        "workingDir": "source"
+      },
+      "ports": [{ "port": 3000, "label": "Web UI", "protocol": "http" }],
+      "env": [
+        { "key": "GITEA__server__HTTP_PORT", "label": "Port", "defaultValue": "3000" }
+      ],
+      "secrets": [],
+      "healthCheck": { "path": "/", "expectedStatus": 200 },
+      "minRamMB": 128,
+      "minStorageMB": 100,
+      "tags": ["git", "dev", "version-control"]
+    },
+    {
+      "id": "vaultwarden",
+      "label": "Vaultwarden",
+      "version": "1.30.5",
+      "description": "Bitwarden-compatible password manager server. Store all your passwords locally. Zero cloud. Zero subscription.",
+      "category": "security",
+      "website": "https://github.com/dani-garcia/vaultwarden",
+      "source": { "type": "binary", "url": "https://github.com/dani-garcia/vaultwarden/releases/download/1.30.5/vaultwarden-1.30.5-linux-armv8-aarch64.tar.gz", "repo": "dani-garcia/vaultwarden", "sha256": "" },
+      "runtime": { "type": "native", "engine": "binary", "version": "1.30.5" },
+      "install": {
+        "setup": ["chmod +x vaultwarden"],
+        "startCommand": "./vaultwarden",
+        "workingDir": "source"
+      },
+      "ports": [{ "port": 8000, "label": "Web Vault", "protocol": "http" }],
+      "env": [
+        { "key": "ROCKET_PORT", "label": "Port", "defaultValue": "8000" },
+        { "key": "ROCKET_ADDRESS", "label": "Address", "defaultValue": "0.0.0.0" },
+        { "key": "SIGNUPS_ALLOWED", "label": "Allow Signups", "defaultValue": "true" }
+      ],
+      "secrets": [
+        { "key": "ADMIN_TOKEN", "label": "Admin Token", "example": "your_strong_token_here" }
+      ],
+      "healthCheck": { "path": "/alive", "expectedStatus": 200 },
+      "minRamMB": 64,
+      "minStorageMB": 50,
+      "tags": ["password", "bitwarden", "security", "privacy"]
+    },
+    {
+      "id": "uptime-kuma",
+      "label": "Uptime Kuma",
+      "version": "1.23.11",
+      "description": "Self-hosted monitoring tool. Watch your services, get alerts. Beautiful dashboard for all your Vulcan apps.",
+      "category": "monitoring",
+      "website": "https://uptime.kuma.pet",
+      "source": { "type": "git", "url": "https://github.com/louislam/uptime-kuma.git", "repo": "louislam/uptime-kuma", "branch": "master", "sha256": "" },
+      "runtime": { "type": "native", "engine": "node", "version": "20.14.0" },
+      "install": {
+        "setup": ["npm install --production"],
+        "startCommand": "node server/server.js",
+        "workingDir": "source"
+      },
+      "ports": [{ "port": 3001, "label": "Dashboard", "protocol": "http" }],
+      "env": [
+        { "key": "PORT", "label": "Port", "defaultValue": "3001" }
+      ],
+      "secrets": [],
+      "healthCheck": { "path": "/", "expectedStatus": 200 },
+      "minRamMB": 128,
+      "minStorageMB": 150,
+      "tags": ["monitoring", "uptime", "alerts"]
+    },
+    {
+      "id": "code-server",
+      "label": "Code Server",
+      "version": "4.22.0",
+      "description": "VSCode in your browser. Full VS Code experience accessible from any device on your LAN. Your phone becomes a dev server.",
+      "category": "dev-tools",
+      "website": "https://coder.com/docs/code-server",
+      "source": { "type": "archive", "url": "https://github.com/coder/code-server/releases/download/v4.22.0/code-server-4.22.0-linux-arm64.tar.gz", "repo": "coder/code-server", "sha256": "" },
+      "runtime": { "type": "native", "engine": "node", "version": "20.14.0" },
+      "install": {
+        "setup": [],
+        "startCommand": "./bin/code-server --bind-addr 0.0.0.0:8443 --auth password",
+        "workingDir": "source"
+      },
+      "ports": [{ "port": 8443, "label": "VS Code", "protocol": "http" }],
+      "env": [
+        { "key": "PORT", "label": "Port", "defaultValue": "8443" }
+      ],
+      "secrets": [
+        { "key": "PASSWORD", "label": "Access Password", "example": "your_password_here" }
+      ],
+      "healthCheck": { "path": "/", "expectedStatus": 200 },
+      "minRamMB": 512,
+      "minStorageMB": 500,
+      "tags": ["vscode", "ide", "dev", "editor"]
+    },
+    {
+      "id": "immich",
+      "label": "Immich",
+      "version": "1.106.0",
+      "description": "Self-hosted Google Photos alternative. Automatic backup, facial recognition, albums — all on your device.",
+      "category": "media",
+      "website": "https://immich.app",
+      "source": { "type": "git", "url": "https://github.com/immich-app/immich.git", "repo": "immich-app/immich", "branch": "main", "sha256": "" },
+      "runtime": { "type": "native", "engine": "node", "version": "20.14.0" },
+      "install": {
+        "setup": ["cd server && npm install", "cd server && npm run build"],
+        "startCommand": "cd server && node dist/main.js",
+        "workingDir": "source"
+      },
+      "ports": [{ "port": 2283, "label": "Web UI", "protocol": "http" }],
+      "env": [
+        { "key": "SERVER_PORT", "label": "Port", "defaultValue": "2283" }
+      ],
+      "secrets": [
+        { "key": "JWT_SECRET", "label": "JWT Secret", "example": "random_32_char_string" }
+      ],
+      "healthCheck": { "path": "/api/server-info/ping", "expectedStatus": 200 },
+      "minRamMB": 512,
+      "minStorageMB": 1000,
+      "tags": ["photos", "gallery", "backup", "google-photos"]
+    },
+    {
+      "id": "actual-budget",
+      "label": "Actual Budget",
+      "version": "24.5.0",
+      "description": "Personal finance app with zero-knowledge sync. Budget, track expenses, and see your financial picture. Privacy-first.",
+      "category": "finance",
+      "website": "https://actualbudget.org",
+      "source": { "type": "git", "url": "https://github.com/actualbudget/actual-server.git", "repo": "actualbudget/actual-server", "branch": "master", "sha256": "" },
+      "runtime": { "type": "native", "engine": "node", "version": "20.14.0" },
+      "install": {
+        "setup": ["npm install"],
+        "startCommand": "node app.js",
+        "workingDir": "source"
+      },
+      "ports": [{ "port": 5006, "label": "Web UI", "protocol": "http" }],
+      "env": [
+        { "key": "PORT", "label": "Port", "defaultValue": "5006" }
+      ],
+      "secrets": [],
+      "healthCheck": { "path": "/health", "expectedStatus": 200 },
+      "minRamMB": 128,
+      "minStorageMB": 100,
+      "tags": ["finance", "budget", "money", "privacy"]
+    }
+  ]
+}

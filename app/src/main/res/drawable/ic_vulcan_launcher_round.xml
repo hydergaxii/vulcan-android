@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Round background — forge black circle -->
+    <path
+        android:fillColor="#1A1A1A"
+        android:pathData="M54,4 A50,50 0 1,1 53.999,4 Z" />
+
+    <!-- Anvil base -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="
+            M28,72 L80,72 L80,80 L28,80 Z
+            M34,64 L74,64 L74,72 L34,72 Z" />
+
+    <!-- Anvil horn (left) -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M28,64 C28,64 20,64 18,60 C16,56 20,52 26,52 L40,52 L40,64 Z" />
+
+    <!-- Anvil top face -->
+    <path
+        android:fillColor="#FF8C5A"
+        android:pathData="M36,44 L78,44 L78,64 L36,64 Z" />
+
+    <!-- Flame — center -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="
+            M54,44 C54,44 48,38 50,30 C52,22 54,20 54,20
+            C54,20 58,26 58,30 C58,36 56,38 58,42
+            C60,38 64,32 62,26 C64,30 68,36 66,42
+            C68,36 72,32 70,26 C72,32 74,40 70,44 Z" />
+
+    <!-- Flame highlight -->
+    <path
+        android:fillColor="#FFAA44"
+        android:pathData="
+            M54,44 C54,44 50,38 52,32 C53,28 54,26 54,26
+            C54,26 56,30 56,34 C56,38 54,40 54,44 Z" />
+
+</vector>

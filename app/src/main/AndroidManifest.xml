@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.vulcan.app">
+
+    <!-- ── STORAGE ──────────────────────────────────────────────────────── -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <!-- ── NETWORK ──────────────────────────────────────────────────────── -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+
+    <!-- ── BACKGROUND EXECUTION ─────────────────────────────────────────── -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <!-- ── UI / AUTH ─────────────────────────────────────────────────────── -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+    <!-- ── NOTIFICATIONS ─────────────────────────────────────────────────── -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- ── LAUNCHER SHORTCUTS ────────────────────────────────────────────── -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+    <!-- ── ADB / WIRELESS DEBUGGING ─────────────────────────────────────── -->
+    <!-- Needed for Android 11+ wireless ADB pairing flow -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <application
+        android:name=".VulcanApp"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_vulcan_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_vulcan_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Vulcan"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="false"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        tools:targetApi="35">
+
+        <!-- ── MAIN ACTIVITY ──────────────────────────────────────────── -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.Vulcan"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ── SLOT ACTIVITY (target for all ActivityAlias slots) ──────── -->
+        <activity
+            android:name=".launcher.SlotActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.Vulcan.Translucent" />
+
+        <!-- ── LAUNCHER SLOTS × 10 (ActivityAlias — home screen icons) ── -->
+        <!-- Each slot is a "real" launcher entry that opens a Vulcan app   -->
+
+        <activity-alias
+            android:name=".slots.Slot0"
+            android:targetActivity=".launcher.SlotActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_slot_placeholder"
+            android:label="@string/slot_label_placeholder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="vulcan.slot.index" android:value="0" />
+        </activity-alias>
+
+        <activity-alias
+            android:name=".slots.Slot1"
+            android:targetActivity=".launcher.SlotActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_slot_placeholder"
+            android:label="@string/slot_label_placeholder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="vulcan.slot.index" android:value="1" />
+        </activity-alias>
+
+        <activity-alias
+            android:name=".slots.Slot2"
+            android:targetActivity=".launcher.SlotActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_slot_placeholder"
+            android:label="@string/slot_label_placeholder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="vulcan.slot.index" android:value="2" />
+        </activity-alias>
+
+        <activity-alias
+            android:name=".slots.Slot3"
+            android:targetActivity=".launcher.SlotActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_slot_placeholder"
+            android:label="@string/slot_label_placeholder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="vulcan.slot.index" android:value="3" />
+        </activity-alias>
+
+        <activity-alias
+            android:name=".slots.Slot4"
+            android:targetActivity=".launcher.SlotActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_slot_placeholder"
+            android:label="@string/slot_label_placeholder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="vulcan.slot.index" android:value="4" />
+        </activity-alias>
+
+        <activity-alias
+            android:name=".slots.Slot5"
+            android:targetActivity=".launcher.SlotActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_slot_placeholder"
+            android:label="@string/slot_label_placeholder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="vulcan.slot.index" android:value="5" />
+        </activity-alias>
+
+        <activity-alias
+            android:name=".slots.Slot6"
+            android:targetActivity=".launcher.SlotActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_slot_placeholder"
+            android:label="@string/slot_label_placeholder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="vulcan.slot.index" android:value="6" />
+        </activity-alias>
+
+        <activity-alias
+            android:name=".slots.Slot7"
+            android:targetActivity=".launcher.SlotActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_slot_placeholder"
+            android:label="@string/slot_label_placeholder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="vulcan.slot.index" android:value="7" />
+        </activity-alias>
+
+        <activity-alias
+            android:name=".slots.Slot8"
+            android:targetActivity=".launcher.SlotActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_slot_placeholder"
+            android:label="@string/slot_label_placeholder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="vulcan.slot.index" android:value="8" />
+        </activity-alias>
+
+        <activity-alias
+            android:name=".slots.Slot9"
+            android:targetActivity=".launcher.SlotActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_slot_placeholder"
+            android:label="@string/slot_label_placeholder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="vulcan.slot.index" android:value="9" />
+        </activity-alias>
+
+        <!-- ── VULCAN CORE SERVICE ──────────────────────────────────────── -->
+        <service
+            android:name=".service.VulcanCoreService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync|specialUse"
+            android:stopWithTask="false" />
+
+        <!-- ── APP RUNNER SERVICE (one per running app) ────────────────── -->
+        <service
+            android:name=".service.AppRunnerService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync"
+            android:stopWithTask="false" />
+
+        <!-- ── BOOT RECEIVER ────────────────────────────────────────────── -->
+        <receiver
+            android:name=".service.BootReceiver"
+            android:exported="true">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <!-- ── ALARM RECEIVER (Doze fallback) ──────────────────────────── -->
+        <receiver
+            android:name=".service.VulcanAlarmReceiver"
+            android:exported="false" />
+
+        <!-- ── PROVIDER: FileProvider for APK installs ─────────────────── -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- ── WorkManager initializer ─────────────────────────────────── -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+    </application>
+</manifest>
