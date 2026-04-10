@@ -1,77 +1,39 @@
 workflows:
-
   vulcan-debug:
-
     name: Vulcan Debug Build
-
     max_build_duration: 60
-
     environment:
-
       java: 17
-
     scripts:
-
       - name: Set Gradle permissions
-
         script: chmod +x gradlew
-
       - name: Build Debug APK
-
         script: ./gradlew assembleDebug --stacktrace
-
     artifacts:
-
       - app/build/outputs/apk/debug/*.apk
-
       - app/build/outputs/logs/
-
     publishing:
-
       email:
-
         recipients:
-
           - hydergaxii@email.com
-
         notify:
-
           success: true
-
           failure: true
-
   vulcan-release:
-
     name: Vulcan Release Build (Signed)
-
     max_build_duration: 60
-
     environment:
-
       java: 17
-
       android_signing:
-
         - vulcan_keystore          # name this in Codemagic dashboard
-
     scripts:
-
       - name: Set Gradle permissions
-
         script: chmod +x gradlew
-
       - name: Build Release APK
-
         script: ./gradlew assembleRelease --stacktrace
-
     artifacts:
-
       - app/build/outputs/apk/release/*.apk
-
     publishing:
-
       email:
-
         recipients:
-
           - hydergaxii@email.com
